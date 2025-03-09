@@ -51,4 +51,35 @@ export const useAuthStore = create((set, get) => ({
       set({ isSigningUp: false });
     }
   },
+
+  login: async (data) => {
+    set({ isLoggingIn: true });
+    try {
+      const res = await axiosInstance.post("/auth/login", data);
+      set({ authUser: res.data });
+      toast.success("Logged in successfully");
+
+      get().connectSocket();
+    } catch (error) {
+      toast.error(error.response.data.message);
+    } finally {
+      set({ isLoggingIn: false });
+    }
+  },
+
+  logout: async () => {
+    try {
+      const response = await axiosInstance.post("/auth/logout");
+      set({ authUser: null });
+      toast.success("Logged out successfully!");
+    } catch (error) {
+      // Log the error object for debugging purposes
+      console.error("Error during logout:", error);
+  
+      // Check if error.response is defined and if it contains a message
+      const errorMessage = error?.response?.data?.message || "An error occurred during logout";
+      toast.error(errorMessage);
+    }
+  }
+  
 }));

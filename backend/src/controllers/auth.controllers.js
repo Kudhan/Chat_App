@@ -82,15 +82,14 @@ export const login = async (req, res) => {
 
 // Logout Controller (no changes, as per your request)
 export const logout = (req, res) => {
-    try{
-        res.cookie("jwt","",{maxAge:0});
-        res.status(200).json({message:"Logout Succesfully"});
+    try {
+      res.cookie("jwt", "", { maxAge: 0 });
+      res.status(200).json({ message: "Logged out successfully" });
+    } catch (error) {
+      console.log("Error in logout controller", error.message);
+      res.status(500).json({ message: "Internal Server Error" });
     }
-    catch(error){
-        console.log("Error in logout controller",error.message);
-        res.status(500).json({message:"INternal Server Error"});
-    }
-};
+  };
 
 
 export const updateProfile = async(req,res)=>{

@@ -5,6 +5,7 @@ import { useAuthStore } from './store/useAuthStore';
 import { useEffect } from 'react';
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
+import Navbar from './components/navbar';
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -25,6 +26,7 @@ const App = () => {
 
   return (
     <>
+      <Navbar />
       <Routes>
         {/* Public Routes */}
         <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
