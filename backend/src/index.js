@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import dotenv from "dotenv";
+import cors from "cors";
 import { connectDB } from "./lib/db.js";
 
 dotenv.config();
@@ -15,6 +16,10 @@ app.use(cookieParser());
 // Middleware to parse incoming JSON data
 app.use(express.json());
 
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true
+}));
 // Use the authentication routes
 app.use("/api/auth", authRoutes);  // Prefix for auth routes
 app.use("/api/message", messageRoutes);  // Fixed this line
