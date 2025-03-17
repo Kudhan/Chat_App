@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css';
 import { Routes, Route, Navigate } from "react-router-dom";
 import { HomePage, LoginPage, SignUpPage, SettingsPage, ProfilePage } from './pages';
 import { useAuthStore } from './store/useAuthStore';
@@ -6,10 +7,11 @@ import { useEffect } from 'react';
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
 import Navbar from './components/navbar';
+import { useThemeStore } from './store/useThemeStore';
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
-
+  const {theme}=useThemeStore();
   // Use useEffect to check authentication status on initial render
   useEffect(() => {
     checkAuth();  // Check if the user is authenticated
@@ -26,6 +28,8 @@ const App = () => {
 
   return (
     <>
+    <div data-theme={theme}>
+
       <Navbar />
       <Routes>
         {/* Public Routes */}
@@ -38,6 +42,7 @@ const App = () => {
         <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
       </Routes>
       <Toaster />
+      </div>
     </>
   );
 };
