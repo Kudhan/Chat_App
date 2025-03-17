@@ -22,7 +22,7 @@ app.use(cors({
 }));
 // Use the authentication routes
 app.use("/api/auth", authRoutes);  // Prefix for auth routes
-app.use("/api/message", messageRoutes);  // Fixed this line
+app.use("/api/messages", messageRoutes);  // Fixed this line
 
 // Start the server and connect to the database
 app.listen(PORT, () => {
