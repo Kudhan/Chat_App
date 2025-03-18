@@ -11,9 +11,8 @@ const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
 
   return (
-    <div className="h-screen py-14 flex items-center justify-center px-4 pt-20">
-      {/* The max-w-5xl helps control the content width, preventing it from being too wide */}
-      <div className="space-y-6 w-full max-w-5xl">
+    <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
+      <div className="space-y-6">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-semibold">Theme</h2>
           <p className="text-sm text-base-content/70">Choose a theme for your chat interface</p>
@@ -23,8 +22,10 @@ const SettingsPage = () => {
           {THEMES.map((t) => (
             <button
               key={t}
-              className={`group flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors
-                ${theme === t ? "bg-base-200" : "hover:bg-base-200/50"}`}
+              className={`
+                group flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors
+                ${theme === t ? "bg-base-200" : "hover:bg-base-200/50"}
+              `}
               onClick={() => setTheme(t)}
             >
               <div className="relative h-8 w-full rounded-md overflow-hidden" data-theme={t}>
@@ -77,8 +78,10 @@ const SettingsPage = () => {
                       >
                         <p className="text-sm">{message.content}</p>
                         <p
-                          className={`text-[10px] mt-1.5
-                            ${message.isSent ? "text-primary-content/70" : "text-base-content/70"}`}
+                          className={`
+                            text-[10px] mt-1.5
+                            ${message.isSent ? "text-primary-content/70" : "text-base-content/70"}
+                          `}
                         >
                           12:00 PM
                         </p>
@@ -110,5 +113,4 @@ const SettingsPage = () => {
     </div>
   );
 };
-
 export default SettingsPage;
