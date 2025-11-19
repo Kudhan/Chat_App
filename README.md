@@ -47,16 +47,15 @@ It supports real-time messaging, image sharing, JWT authentication using HTTP-on
 
 Follow these steps to run the app locally.
 
----
+
 
 ## 📦 1. Clone the Repository
 
-```bash
 git clone <your-repo-url>
 cd <project-folder>
 
 
-🖥️ Backend Setup
+## 🖥️ Backend Setup
 cd backend
 npm install
 
