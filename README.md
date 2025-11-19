@@ -55,11 +55,11 @@ git clone <your-repo-url>
 cd <project-folder>
 
 
-## 🖥️ Backend Setup
+## 🖥️ 2. Backend Setup
 cd backend
 npm install
 
-📄 Create .env file inside backend/
+📄 3. Create .env file inside backend/
 PORT=5000
 NODE_ENV=development
 
@@ -73,7 +73,7 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 FRONTEND_URL=http://localhost:5173
 
-▶️ Run backend
+▶️ 4. Run backend
 npm run dev
 
 
@@ -81,7 +81,7 @@ Backend will run on:
 
 http://localhost:5000
 
-🎨 Frontend Setup
+🎨 5.Frontend Setup
 cd ../frontend
 npm install
 
@@ -91,7 +91,7 @@ If you want custom API URL:
 
 VITE_API_URL=http://localhost:5000
 
-▶️ Run frontend
+▶️ 6. Run frontend
 npm run dev
 
 
