@@ -57,7 +57,9 @@ cd <project-folder>
 
 ## 🖥️ 2. Backend Setup
 cd backend
-npm install
+"""npm install"""
+
+---
 
 📄 3. Create .env file inside backend/
 PORT=5000
@@ -72,6 +74,8 @@ CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 
 FRONTEND_URL=http://localhost:5173
+
+---
 
 ▶️ 4. Run backend
 npm run dev
@@ -91,8 +95,10 @@ If you want custom API URL:
 
 VITE_API_URL=http://localhost:5000
 
+---
+
 ▶️ 6. Run frontend
-npm run dev
+""npm run dev""
 
 
 Frontend will run at:
